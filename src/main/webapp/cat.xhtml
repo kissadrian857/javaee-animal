@@ -9,36 +9,36 @@
 </h:head>
 <body>
 <h:form>
-    <h:dataTable id="dogTable" value="#{dogCRUDMBean.list}" var="dog">
+    <h:dataTable id="catTable" value="#{catCRUDMBean.list}" var="cat">
         <h:column>
             <f:facet name="header">ID</f:facet>
-            #{dog.id}
+            #{cat.id}
         </h:column>
         <h:column>
             <f:facet name="header">Name</f:facet>
-            #{dog.name}
+            #{cat.name}
         </h:column>
         <h:column>
             <f:facet name="header">Number of legs</f:facet>
-            #{dog.legsNumber}
+            #{cat.legsNumber}
         </h:column>
         <h:column>
             <f:facet name="header">Funkciók</f:facet>
-            <h:commandButton value="Törlés" actionListener="#{dogCRUDMBean.remove(dog)}">
+            <h:commandButton value="Törlés" actionListener="#{catCRUDMBean.remove(cat)}">
                 <f:ajax render="@form"/>
             </h:commandButton>
-            <h:commandButton value="Módosítás" actionListener="#{dogCRUDMBean.setSelectedDog(dog)}">
+            <h:commandButton value="Módosítás" actionListener="#{catCRUDMBean.setSelectedCat(cat)}">
                 <f:ajax render="@form"/>
             </h:commandButton>
         </h:column>
     </h:dataTable>
     <h:outputText value="Név"/>
-    <h:inputText value="#{dogCRUDMBean.selectedDog.name}"/>
+    <h:inputText value="#{catCRUDMBean.selectedCat.name}"/>
     <br/>
     <h:outputText value="Típus"/>
-    <h:inputText value="#{dogCRUDMBean.selectedDog.legsNumber}"/>
+    <h:inputText value="#{catCRUDMBean.selectedCat.legsNumber}"/>
     <br/>
-    <h:commandButton value="Mentés" actionListener="#{dogCRUDMBean.save}">
+    <h:commandButton value="Mentés" actionListener="#{catCRUDMBean.save}">
         <f:ajax execute="@form" render="@form"/>
     </h:commandButton>
 </h:form>
