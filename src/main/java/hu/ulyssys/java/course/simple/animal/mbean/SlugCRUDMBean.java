@@ -41,4 +41,12 @@ public class SlugCRUDMBean implements Serializable {
     public void setSelectedSlug(Slug selectedSlug) {
         this.selectedSlug = selectedSlug;
     }
+
+    public void remove(Slug slug){
+
+    }
+
+    public void save(){
+
+    }
 }

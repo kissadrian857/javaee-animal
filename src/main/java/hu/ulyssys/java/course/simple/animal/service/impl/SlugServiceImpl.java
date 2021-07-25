@@ -15,7 +15,12 @@ public class SlugServiceImpl extends AbstractServiceImpl<Slug> implements SlugSe
         }
     }
 
-    public void update(Slug slug) {
-
+    public void update(Slug updateable){
+        for(Slug slug : getALl()){
+            if(slug.getId().equals(updateable.getId())){
+                slug.setName(updateable.getName());
+                slug.setLegsNumber(updateable.getLegsNumber());
+            }
+        }
     }
 }

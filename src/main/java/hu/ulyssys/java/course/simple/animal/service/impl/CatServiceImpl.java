@@ -15,7 +15,12 @@ public class CatServiceImpl extends AbstractServiceImpl<Cat> implements CatServi
         }
     }
 
-    public void update(Cat cat){
-
+    public void update(Cat updateable){
+        for(Cat cat : getALl()){
+            if(cat.getId().equals(updateable.getId())){
+                cat.setName(updateable.getName());
+                cat.setLegsNumber(updateable.getLegsNumber());
+            }
+        }
     }
 }

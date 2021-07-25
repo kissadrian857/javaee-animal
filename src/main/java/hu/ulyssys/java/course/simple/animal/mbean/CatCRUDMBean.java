@@ -40,4 +40,12 @@ public class CatCRUDMBean implements Serializable {
     public void setSelectedCat(Cat selectedCat) {
         this.selectedCat = selectedCat;
     }
+
+    public void remove(Cat cat){
+
+    }
+
+    public void save(){
+
+    }
 }
