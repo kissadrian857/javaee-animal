@@ -43,10 +43,18 @@ public class SlugCRUDMBean implements Serializable {
     }
 
     public void remove(Slug slug){
-
+        slugService.remove(slug);
+        list = slugService.getALl();
     }
 
     public void save(){
-
+        if (selectedSlug.getId() == null) {
+            selectedSlug.setId(System.currentTimeMillis());
+            slugService.add(selectedSlug);
+        } else {
+            slugService.update(selectedSlug);
+        }
+        list = slugService.getALl();
+        selectedSlug = new Slug();
     }
 }

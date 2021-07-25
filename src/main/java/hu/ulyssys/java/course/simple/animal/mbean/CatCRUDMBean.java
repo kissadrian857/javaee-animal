@@ -21,7 +21,7 @@ public class CatCRUDMBean implements Serializable {
     private Cat selectedCat;
 
     @PostConstruct
-    private void init(){
+    private void init() {
         list = catService.getALl();
     }
 
@@ -41,11 +41,20 @@ public class CatCRUDMBean implements Serializable {
         this.selectedCat = selectedCat;
     }
 
-    public void remove(Cat cat){
-
+    public void remove(Cat cat) {
+        catService.remove(cat);
+        list = catService.getALl();
     }
 
-    public void save(){
-
+    public void save() {
+        if (selectedCat.getId() == null) {
+            selectedCat.setId(System.currentTimeMillis());
+            catService.add(selectedCat);
+        } else {
+            catService.update(selectedCat);
+        }
+        list = catService.getALl();
+        selectedCat = new Cat();
     }
 }
+
