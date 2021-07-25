@@ -14,4 +14,13 @@ public class DogServiceImpl extends AbstractServiceImpl<Dog> implements DogServi
             add(dog);
         }
     }
+
+    public void update(Dog updateable){
+        for(Dog dog: getALl()){
+            if(dog.getId().equals(updateable.getId())){
+                dog.setName(updateable.getName());
+                dog.setLegsNumber(updateable.getLegsNumber());
+            }
+        }
+    }
 }

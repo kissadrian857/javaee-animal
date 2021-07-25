@@ -10,4 +10,6 @@ public interface CoreService<T extends AbstractAnimal> {
     void add(T animal);
 
     void remove(T animal);
+
+    void update(T animal);
 }
