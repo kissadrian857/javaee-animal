@@ -27,11 +27,20 @@
             <h:commandButton value="Törlés" actionListener="#{dogCRUDMBean.remove(dog)}">
                 <f:ajax render="@form"/>
             </h:commandButton>
-            <h:commandButton value="Módosítás" actionListener="#{dogCRUDMBean.remove(dog)}">
+            <h:commandButton value="Módosítás" actionListener="#{dogCRUDMBean.setSelectedDog(dog)}">
                 <f:ajax render="@form"/>
             </h:commandButton>
         </h:column>
     </h:dataTable>
+    <h:outputText value="Név"/>
+    <h:inputText value="#{dogCRUDMBean.selectedDog.name}"/>
+    <br/>
+    <h:outputText value="Típus"/>
+    <h:inputText value="#{dogCRUDMBean.selectedDog.legsNumber}"/>
+    <br/>
+    <h:commandButton value="Mentés" actionListener="#{dogCRUDMBean.save}">
+        <f:ajax execute="@form" render="@form"/>
+    </h:commandButton>
 </h:form>
 </body>
 </html>

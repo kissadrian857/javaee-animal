@@ -17,4 +17,8 @@ public class CatServiceImpl extends AbstractServiceImpl<Cat> implements CatServi
             add(cat);
         }
     }
+
+    public void update(Cat cat){
+
+    }
 }

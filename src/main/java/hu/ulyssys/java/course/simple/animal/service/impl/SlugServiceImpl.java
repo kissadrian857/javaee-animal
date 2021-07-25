@@ -17,4 +17,8 @@ public class SlugServiceImpl extends AbstractServiceImpl<Slug> implements SlugSe
             add(slug);
         }
     }
+
+    public void update(Slug slug) {
+
+    }
 }
