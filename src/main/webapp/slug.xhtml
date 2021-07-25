@@ -2,11 +2,45 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+<h:head>
     <title>Slug</title>
-</head>
+</h:head>
 <body>
-
+<h:form>
+    <h:dataTable id="dogTable" value="#{dogCRUDMBean.list}" var="dog">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{dog.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{dog.name}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Number of legs</f:facet>
+            #{dog.legsNumber}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Funkciók</f:facet>
+            <h:commandButton value="Törlés" actionListener="#{dogCRUDMBean.remove(dog)}">
+                <f:ajax render="@form"/>
+            </h:commandButton>
+            <h:commandButton value="Módosítás" actionListener="#{dogCRUDMBean.setSelectedDog(dog)}">
+                <f:ajax render="@form"/>
+            </h:commandButton>
+        </h:column>
+    </h:dataTable>
+    <h:outputText value="Név"/>
+    <h:inputText value="#{dogCRUDMBean.selectedDog.name}"/>
+    <br/>
+    <h:outputText value="Típus"/>
+    <h:inputText value="#{dogCRUDMBean.selectedDog.legsNumber}"/>
+    <br/>
+    <h:commandButton value="Mentés" actionListener="#{dogCRUDMBean.save}">
+        <f:ajax execute="@form" render="@form"/>
+    </h:commandButton>
+</h:form>
 </body>
 </html>
