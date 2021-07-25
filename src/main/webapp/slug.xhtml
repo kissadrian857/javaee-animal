@@ -15,16 +15,16 @@
             #{slug.id}
         </h:column>
         <h:column>
-            <f:facet name="header">Name</f:facet>
+            <f:facet name="header">Név</f:facet>
             #{slug.name}
         </h:column>
         <h:column>
-            <f:facet name="header">Number of legs</f:facet>
+            <f:facet name="header">Lábak száma</f:facet>
             #{slug.legsNumber}
         </h:column>
         <h:column>
             <f:facet name="header">Funkciók</f:facet>
-            <h:commandButton value="Törlés" actionListener="#{slugCRUDMBean.remove(dog)}">
+            <h:commandButton value="Törlés" actionListener="#{slugCRUDMBean.remove(slug)}">
                 <f:ajax render="@form"/>
             </h:commandButton>
             <h:commandButton value="Módosítás" actionListener="#{slugCRUDMBean.setSelectedSlug(slug)}">
@@ -35,7 +35,7 @@
     <h:outputText value="Név"/>
     <h:inputText value="#{slugCRUDMBean.selectedSlug.name}"/>
     <br/>
-    <h:outputText value="Típus"/>
+    <h:outputText value="Lábak száma"/>
     <h:inputText value="#{slugCRUDMBean.selectedSlug.legsNumber}"/>
     <br/>
     <h:commandButton value="Mentés" actionListener="#{slugCRUDMBean.save}">
